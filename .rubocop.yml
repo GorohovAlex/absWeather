@@ -1,0 +1,166 @@
+require: rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - db/**/*
+    - vendor/**/*
+    - tmp/**/*
+    - bin/**/*
+    - config/initializers/override_sortable_tree.rb
+  TargetRubyVersion: 2.5
+
+Style/Documentation:
+  Enabled: false
+
+Style/RedundantFetchBlock:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+
+Style/SymbolArray:
+  Enabled: true
+
+RSpec/DescribedClass:
+  SkipBlocks: true
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/db_functions/**/*
+    - spec/concepts/lib/operation/import_from_csv/*_spec.rb
+
+RSpec/NestedGroups:
+  Max: 5
+
+RSpec/ExampleLength:
+  Max: 50
+
+Metrics/BlockLength:
+  IgnoredMethods:
+    - context
+    - describe
+    - draw
+    - factory
+    - it
+    - namespace
+    - feature
+    - scenario
+    - within
+    - register
+    - index
+    - actions
+    - define
+    - shared_examples
+    - validation
+    - configure
+  Exclude:
+    - app/admin/**/*.rb
+    - app/views/**/*.arb
+
+Metrics/ModuleLength:
+  Exclude:
+    - spec/**/*_spec.rb
+
+RSpec/EmptyLineAfterSubject:
+  Exclude:
+    - spec/factories/**/*
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - spec/features/**/*_spec.rb
+    - spec/mailers/**/*_spec.rb
+    - spec/support/shared_examples/features/**/*.rb
+    - spec/queries/reports/**/*.rb
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/MessageChain:
+  Exclude:
+    - spec/workers/**/*_spec.rb
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - app/concepts/**/*
+
+Lint/UnreachableCode:
+  Exclude:
+    - 'app/concepts/**/*'
+
+Style/SignalException:
+  Exclude:
+    - 'app/concepts/**/*'
+
+Lint/DuplicateBranch:
+  Enabled: true
+
+Lint/DuplicateRegexpCharacterClassElement:
+  Enabled: true
+
+Lint/EmptyBlock:
+  Enabled: true
+
+Lint/EmptyClass:
+  Enabled: true
+
+Lint/NoReturnInBeginEndBlocks:
+  Enabled: true
+
+Lint/ToEnumArguments:
+  Enabled: true
+
+Lint/UnexpectedBlockArity:
+  Enabled: true
+
+Lint/UnmodifiedReduceAccumulator:
+  Enabled: true
+
+Style/ArgumentsForwarding:
+  Enabled: true
+
+Style/CollectionCompact:
+  Enabled: true
+Style/DocumentDynamicEvalDefinition:
+  Enabled: true
+
+Style/NegatedIfElseCondition:
+  Enabled: true
+
+Style/NilLambda:
+  Enabled: true
+
+Style/RedundantArgument:
+  Enabled: true
+
+Style/SwapValues:
+  Enabled: true
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+  CheckMethodNames: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Lint/ConstantDefinitionInBlock:
+  Enabled: false
+
+RSpec/RepeatedExampleGroupDescription:
+  Enabled: false
+
+RSpec/RepeatedExampleGroupBody:
+  Enabled: false
+
+RSpec/RepeatedIncludeExample:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
