@@ -1,0 +1,32 @@
+version: '3.4'
+
+volumes:
+  postgres:
+  # server_app:
+
+services:
+  db:
+    image: postgres:11
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      # POSTGRES_DB: "db"
+      # POSTGRES_HOST_AUTH_METHOD: "trust"
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  server_app: &server_app
+    build: .
+    entrypoint: "./docker-entrypoint.sh"
+    command: bundle exec rails server --binding 0.0.0.0
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    environment: &server_app_env
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
