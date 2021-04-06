@@ -31,10 +31,25 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mailgun.org',
+    port: 587,
+    domain: 'sandboxca10c4394d2a4b97a1a680f7bebb9b4a.mailgun.org',
+    user_name: 'postmaster@sandboxca10c4394d2a4b97a1a680f7bebb9b4a.mailgun.org',
+    password: 'b69bab88e0225d40ba0449fb285d7c63-b6d086a8-3a09c4fb',
+    authentication: :plain,
+    nable_starttls_auto: true
+    # :enable_starttls_auto => true
+  }
 
   config.action_mailer.perform_caching = false
+  config.default_sender_email = 'postmaster@sandboxca10c4394d2a4b97a1a680f7bebb9b4a.mailgun.org'
+  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.default_url_options = { host: 'localhost' }
+  config.action_mailer.delivery_method = :smtp
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

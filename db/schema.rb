@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_06_124547) do
+ActiveRecord::Schema.define(version: 2021_03_14_105401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,11 @@ ActiveRecord::Schema.define(version: 2021_02_06_124547) do
     t.string "path"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "temperature"
+    t.float "temperature_sens"
+    t.string "description"
+    t.string "sunrise"
+    t.string "sunset"
     t.index ["city_id"], name: "index_weather_cities_on_city_id"
     t.index ["weather_source_id"], name: "index_weather_cities_on_weather_source_id"
   end

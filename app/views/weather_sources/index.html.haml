@@ -1,1 +1,28 @@
-= @model
+.container
+  .row
+    .col-2
+      = City
+    .col-2
+      = 'Temperature'
+    .col-2
+      = 'Temperature sens'
+    .col-2
+      = 'Sunrise'
+    .col-2
+      = 'Sunset'
+    .col-2
+      = 'Description'
+  - @cities.each do |city|
+    .row
+      .col-2
+        = city.title
+      .col-2
+        = city.temperature
+      .col-2
+        = city.temperature_sens
+      .col-2
+        = city.sunrise
+      .col-2
+        = city.sunset
+      .col-2
+        = city.description
