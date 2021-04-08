@@ -1,24 +1,14 @@
-# README
+# AbsWeather
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+`/db/seeds.rb`:
+  - Get cities list
+  - Pasing site `sinoptik.ua`
+  - Send email to users
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Docker:
+  - Dockerfile - basic config for Docker
+  - docker-compose.staging.yml - config for staging env
+  - docker-compose.development.yml - config for development env
+ 
+ http://localhost:300/index:
+  - Show a table with information for each city
