@@ -19,7 +19,6 @@ cities.first.each_with_index do |city_name, index|
     temperature_sens = doc.css('.temperatureSens > .p6.bR.cur').first.content
     infoDaylight = doc.css('.infoDaylight > span').map(&:content)
 
-    # description = doc.css('.wDescription .description').first.content
     description = doc.xpath('//div[contains(@class,"wDescription")]//div[contains(@class,"description")]').first.content
 
     sinoptik_ua.weather_cities.create(city: city,
@@ -35,12 +34,7 @@ cities.first.each_with_index do |city_name, index|
     next
   end
 
-  WeatherMailer.with(user: '_smile_@ua.fm').welcome_email.deliver_now
+  User.all.each do |user|
+    WeatherMailer.with(user: user.email).welcome_email.deliver_now
+  end
 end
-
-
-# city_dnepr = City.create(title: 'Dnipro')
-# sinoptik_ua = WeatherSource.create(name: 'Sinoptik.ua', url: 'https://sinoptik.ua/', css_selector: '.today-temp')
-# sinoptik_ua.weather_cities.create(city: city_dnepr, path: 'погода-днепр-303007131')
-# gismeteo_ua = WeatherSource.create(name: 'Gismeteo.ua', url: 'https://www.gismeteo.ua/', css_selector: '.unit_temperature_c > .nowvalue__text_l')
-# gismeteo_ua.weather_cities.create(city: city_dnepr, path: 'weather-dnipro-5077/now')
