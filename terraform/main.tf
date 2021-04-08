@@ -1,12 +1,3 @@
-# terraform {
-#   backend "s3" {
-#     bucket  = "absweather-bucket"
-#     key     = "terraform/terraform.tfstate"
-#     region  = "eu-central-1"
-#     encrypt        = true
-#   }
-# }
-
 resource "aws_key_pair" "absweather_key" {
   key_name = "absweather_key"
   public_key = file(var.PATH_TO_PUBLIC_KEY)
